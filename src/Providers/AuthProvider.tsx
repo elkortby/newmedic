@@ -1,17 +1,24 @@
 import React, { useState, createContext } from 'react'
+import AsyncStorage from "@react-native-async-storage/async-storage"
 // import axios from 'axios'
 
-export const AuthContext = createContext({
-	user: null,
+export const AuthContext = React.createContext<{
+    user: null,
 	cab: null,
-    login: (token: string) => {},
+    login: (token: string) => void,
+	logout: () => void,
+	activate: (serial: string) => void,
+}>({
+    user: null,
+	cab: null,
+    login: () => {},
 	logout: () => {},
-	activate: (serial: string) => {},
+	activate: () => {},
 })
 
 export const AuthProvider = ({children} : any) => {
     const [user, setUser] = useState<any>(null)
-    const [cab, setCab] = useState(null)
+    const [cab, setCab] = useState<any>(null)
 
 	// check cab validation
 
@@ -20,16 +27,16 @@ export const AuthProvider = ({children} : any) => {
 		cab,
         login: (token) => {
 			// api call
-			localStorage.setItem("user", token)
+			AsyncStorage.setItem("user", token)
 			setUser(token)
 		},
 		logout: () => {
-			localStorage.removeItem("user")
+			AsyncStorage.removeItem("user")
 			setUser(null)
 		},
 		activate: (serial) => {
-			localStorage.setItem("serial", serial)
 			setCab(serial)
+			AsyncStorage.setItem("serial", serial)
 		},
     }}>{children}</AuthContext.Provider>
 }

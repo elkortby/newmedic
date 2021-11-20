@@ -1,0 +1,37 @@
+import React from "react";
+import { Text, View } from "react-native";
+import { useFonts } from 'expo-font';
+import { text } from "../Styles/text";
+
+type style = {
+	fontSize: number,
+	color: string,
+	fontFamily: string,
+}
+
+type otherStyle = {
+	textAlign: 'left' | 'center' | 'right'
+}
+
+type color = "#42BFDD" | "#084B83" | "white" | "black"
+
+export default function AppText({children, style, otherStyle, color} 
+	: { children: string, style: style, otherStyle?: otherStyle, color?: color }) {
+
+	const [loaded] = useFonts({
+		CairoLight: require('../../assets/Fonts/Cairo/Cairo-Light.ttf'),
+		CairoRegular: require('../../assets/Fonts/Cairo/Cairo-Bold.ttf'),
+		CairoBold: require('../../assets/Fonts/Cairo/Cairo-Bold.ttf'),
+	});
+	
+	if (!loaded) {
+		return <Text>
+			{children}
+		</Text>;
+	}
+	return (
+		<Text style={[text.text, style, otherStyle, {color}]}>
+			{children}
+		</Text>
+	)
+}

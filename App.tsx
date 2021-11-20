@@ -1,6 +1,6 @@
 import React from 'react';
-import Provider from './src/Providers/Provider';
+import { Providers } from './src/Providers/Providers';
 
 export default function App() {
-  return <Provider />
+  return <Providers />
 }
