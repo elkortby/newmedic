@@ -9,11 +9,20 @@ type Props = {
 	shape: any
 	otherStyle?: any
 	maxLength?: number
+	password?: boolean
 }
 
 export default function AppTextInput(
-	{style, onChangeText, value, placeholder, shape, otherStyle, maxLength}: Props
-) {
+	{	style, 
+		onChangeText, 
+		value, 
+		placeholder, 
+		shape, 
+		otherStyle, 
+		maxLength,
+		password
+	}
+: Props ) {
 	return (
 		<TextInput 
 			style={[style, shape, otherStyle]}
@@ -21,6 +30,7 @@ export default function AppTextInput(
 			value={value}
 			placeholder={placeholder}
 			maxLength={maxLength}
+			secureTextEntry={password}
 		/>
 	)
 }

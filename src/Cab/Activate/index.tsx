@@ -82,7 +82,7 @@ export default function index({navigation}: CabNavProps<'Activate'>) {
 						navigation.goBack()
 					}}
 				>
-					<AppText style={text.h6} color='#42BFDD' >رجوع</AppText>
+					<AppText style={text.h6} color='medic' >رجوع</AppText>
 				</AppButton>
 				<AppButton 
 					style={button.buttonView} 

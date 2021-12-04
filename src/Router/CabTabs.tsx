@@ -4,8 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Welcome from '../Cab/Welcome';
 import CreateUsers from '../Cab/CreateUsers';
 import Activate from '../Cab/Activate';
+import { CabParamList } from '../Params/CabNavProps';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<CabParamList>();
 
 export default function CabTabs() {
   return (
