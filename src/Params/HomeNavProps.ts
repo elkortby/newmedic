@@ -3,6 +3,7 @@ import { RouteProp } from '@react-navigation/native'
 
 export type HomeParamList = {
 	Patients: undefined
+	Certificate: undefined
 	Dashboard: undefined
 }
 

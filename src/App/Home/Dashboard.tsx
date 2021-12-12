@@ -2,10 +2,11 @@ import React from 'react'
 import { View, Text, Dimensions } from 'react-native'
 import AppButton from '../../Components/AppButton'
 import AppText from '../../Components/AppText'
+import { HomeNavProps } from '../../Params/HomeNavProps'
 import { button } from '../../Styles/button'
 import { text } from '../../Styles/text'
 
-export default function Dashboard({navigation}) {
+export default function Dashboard({navigation}: HomeNavProps<'Dashboard'>) {
 	return (
 		<View style={{
 			justifyContent: 'space-around',
@@ -32,7 +33,7 @@ export default function Dashboard({navigation}) {
 				</AppButton>
 				<AppButton 
 					style={button.buttonView}
-					onPress={() => navigation.navigate("")}
+					onPress={() => navigation.navigate("Certificate")}
 					size={button.bigButton}
 				>
 					<AppText style={text.h4} color="white">وصفة طبية</AppText>

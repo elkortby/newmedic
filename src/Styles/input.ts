@@ -1,11 +1,23 @@
 import { StyleSheet } from "react-native";
 
 const input = StyleSheet.create({
-	inputView: {
+	inputParagraphView: {
+		paddingHorizontal: 10,
 		width: 200,
 		height: 40,
 	},
+	inputView: {
+		paddingHorizontal: 10,
+		width: 200,
+		height: 40,
+	},
+	longInput: {
+		paddingHorizontal: 10,
+		width: '60%',
+		height: 40,
+	},
 	smallInputView: {
+		paddingHorizontal: 10,
 		width: 100,
 		height: 40,
 		textAlign: 'center'

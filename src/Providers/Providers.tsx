@@ -3,7 +3,6 @@ import { Platform, StatusBar } from 'react-native';
 import { AuthProvider } from './AuthProvider';
 import Provider from './Provider';
 
-
 interface ProvidersProps {
 
 }

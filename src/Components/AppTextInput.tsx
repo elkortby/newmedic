@@ -3,13 +3,14 @@ import { TextInput } from 'react-native'
 
 type Props = {
 	style: any
-	onChangeText: any
-	value: string
+	onChangeText?: any
+	value?: string
 	placeholder?: string	
 	shape: any
 	otherStyle?: any
 	maxLength?: number
 	password?: boolean
+	ref?: any
 }
 
 export default function AppTextInput(
@@ -20,7 +21,8 @@ export default function AppTextInput(
 		shape, 
 		otherStyle, 
 		maxLength,
-		password
+		password,
+		ref
 	}
 : Props ) {
 	return (
@@ -31,6 +33,7 @@ export default function AppTextInput(
 			placeholder={placeholder}
 			maxLength={maxLength}
 			secureTextEntry={password}
+			ref={ref}
 		/>
 	)
 }

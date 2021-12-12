@@ -1,20 +1,21 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react'
-import { AppNavProps } from '../../Params/AppNavProps'
-import { HomeParamList } from '../../Params/HomeNavProps';
-import Dashboard from './Home';
+import { HomeNavProps, HomeParamList } from '../../Params/HomeNavProps';
+import Dashboard from './Dashboard';
+import Certificate from './Dashboard/Certificate';
 import Patients from './Patients';
 
 const Stack = createNativeStackNavigator<HomeParamList>();
 
-export default function Home({navigation}: AppNavProps<'Dashboard'>) {
+export default function Home({navigation}: HomeNavProps<'Dashboard'>) {
 	return (
 		<Stack.Navigator
-			initialRouteName="Patients"
+			initialRouteName="Certificate"
 			screenOptions={{
 				header: () => null
 			}}
 		>
+			<Stack.Screen name="Certificate" component={Certificate} />
 			<Stack.Screen name="Patients" component={Patients} />
 			<Stack.Screen name="Dashboard" component={Dashboard} />
 		</Stack.Navigator>
