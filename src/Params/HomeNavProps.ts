@@ -2,8 +2,8 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { RouteProp } from '@react-navigation/native'
 
 export type HomeParamList = {
+	Patients: undefined
 	Dashboard: undefined
-	Settings: undefined
 }
 
 export type HomeNavProps<T extends keyof HomeParamList> = {

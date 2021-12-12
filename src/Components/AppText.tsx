@@ -10,7 +10,8 @@ type style = {
 }
 
 type otherStyle = {
-	textAlign: 'left' | 'center' | 'right'
+	textAlign?: 'left' | 'center' | 'right',
+	width?: string
 }
 
 type color = "blue" | "medic" | "white" | "black" | "red"

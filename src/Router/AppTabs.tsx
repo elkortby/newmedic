@@ -3,12 +3,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../App/Home';
 import Settings from '../App/Settings';
-import Dashboard from '../App/Dashboard';
 import { AppParamList } from '../Params/AppNavProps';
 import { Platform } from 'react-native';
 import AppText from '../Components/AppText';
 import { Ionicons } from '@expo/vector-icons';
 import { text } from '../Styles/text';
+import Visit from '../App/Visit';
+import History from '../App/History';
 
 const Tabs = createBottomTabNavigator<AppParamList>();
 
@@ -28,10 +29,10 @@ export default function AppTabs() {
                 },
                 tabBarLabel: ({ focused }) => {
                     switch (route.name) {
-                        case "Settings": return focused && <AppText style={text.h5} color="medic">الإعدادات</AppText>;
-                        case "History": return focused && <AppText style={text.h5} color="medic">سابقا</AppText>;
-                        case "Visit": return focused && <AppText style={text.h5} color="medic">زيارة</AppText>;
-                        case "Dashboard": return focused && <AppText style={text.h5} color="medic">الرئيسية</AppText>;
+                        case "Settings": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
+                        case "History": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
+                        case "Visit": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
+                        case "Dashboard": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
                     }
                 },
                 tabBarActiveTintColor: "#42BFDD",
@@ -56,9 +57,9 @@ export default function AppTabs() {
             })}
 		>
 			<Tabs.Screen name="Settings" component={Settings} />
-			<Tabs.Screen name="History" component={Dashboard} />
-			<Tabs.Screen name="Visit" component={Dashboard} />
-			<Tabs.Screen name="Dashboard" component={Dashboard} />
+			<Tabs.Screen name="History" component={History} />
+			<Tabs.Screen name="Visit" component={Visit} />
+			<Tabs.Screen name="Dashboard" component={Home} />
 		</Tabs.Navigator>
 	</NavigationContainer>
   );

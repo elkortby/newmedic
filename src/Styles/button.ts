@@ -17,6 +17,10 @@ const button = StyleSheet.create({
 	smallButton: {
 		width: 100,
 		height: 40
+	},
+	bigButton: {
+		width: 200,
+		height: 80
 	}
 })
 

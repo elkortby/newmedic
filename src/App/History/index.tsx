@@ -4,10 +4,10 @@ import AppText from '../../Components/AppText'
 import AppView from '../../Components/AppView'
 import { text } from '../../Styles/text'
 
-export default function Settings() {
+export default function History() {
 	return (
 		<AppView>
-			<AppText style={text.h2} color="medic" >Settings Page Component</AppText>
+			<AppText style={text.h2} color="medic" >History Page Component</AppText>
 		</AppView>
 	)
 }
