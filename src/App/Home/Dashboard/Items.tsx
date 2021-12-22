@@ -3,7 +3,15 @@ import { View } from 'react-native'
 import AppTextInput from '../../../Components/AppTextInput'
 import { input } from '../../../Styles/input'
 
-export default function Items() {
+export default function ItemsData() {
+	return <Items />
+}
+
+const Items = () => {
+
+	const [Medic, setMedic] = useState("")
+	const [Dose, setDose] = useState("")
+	const [Type, setType] = useState("")	
 	
 	return (
 		<View style={{

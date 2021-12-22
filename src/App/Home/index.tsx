@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator<HomeParamList>();
 export default function Home({navigation}: HomeNavProps<'Dashboard'>) {
 	return (
 		<Stack.Navigator
-			initialRouteName="Certificate"
+			initialRouteName="Dashboard"
 			screenOptions={{
 				header: () => null
 			}}

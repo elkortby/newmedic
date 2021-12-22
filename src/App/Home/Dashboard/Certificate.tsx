@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons'
 import React, { useRef, useState } from 'react'
-import { View, Text, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, Platform } from 'react-native'
 import AppButton from '../../../Components/AppButton'
 import AppText from '../../../Components/AppText'
 import AppTextInput from '../../../Components/AppTextInput'
@@ -9,6 +9,8 @@ import { input } from '../../../Styles/input'
 import { styles } from '../../../Styles/style'
 import { text } from '../../../Styles/text'
 import Items from './Items'
+import * as Print from 'expo-print';
+import { html } from './cert'
 
 // const initialState = useState({
 // 	name: 'Oussama Benkortbi',
@@ -39,11 +41,23 @@ export default function Certificate() {
 		})
 	}
 
-	const handleCreate = () => {
-		const data = {
-			name: nameref.current,
-			age: ageref.current,
-			medics: items,
+	const handleCreate = async () => {
+		// const data = {
+		// 	name: nameref.current,
+		// 	age: ageref.current,
+		// 	medics: items,
+		// }
+		if (Platform.OS === "web") {
+			const pW = window.open('', '', 'height=500, width=500')
+			pW?.document.write(html)
+			pW?.document.close()
+			pW?.print()
+		} else {
+			await Print.printToFileAsync({
+				height: 792 / 2,
+				width: 612 / 2,
+				html: html
+			})
 		}
 	}
 
