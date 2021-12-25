@@ -53,11 +53,12 @@ export default function Certificate() {
 			pW?.document.close()
 			pW?.print()
 		} else {
-			await Print.printToFileAsync({
+			const uri = await Print.printToFileAsync({
 				height: 792 / 2,
 				width: 612 / 2,
 				html: html
 			})
+			// File
 		}
 	}
 

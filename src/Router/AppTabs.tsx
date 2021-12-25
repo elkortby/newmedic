@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../App/Home';
 import Settings from '../App/Settings';
 import { AppParamList } from '../Params/AppNavProps';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import AppText from '../Components/AppText';
 import { Ionicons } from '@expo/vector-icons';
 import { text } from '../Styles/text';
@@ -12,6 +12,10 @@ import Visit from '../App/Visit';
 import History from '../App/History';
 
 const Tabs = createBottomTabNavigator<AppParamList>();
+
+const TabText = ({routeName}: any) => <View style={{ justifyContent: 'center', marginBottom: 10}}>
+    <AppText style={text.h5} color="medic">{routeName}</AppText>
+</View>
 
 export default function AppTabs() {
   return (
@@ -29,10 +33,10 @@ export default function AppTabs() {
                 },
                 tabBarLabel: ({ focused }) => {
                     switch (route.name) {
-                        case "Settings": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
-                        case "History": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
-                        case "Visit": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
-                        case "Dashboard": return focused && <AppText style={text.h5} color="medic">{route.name}</AppText>;
+                        case "Settings": return focused && <TabText routeName={route.name} />
+                        case "History": return focused && <TabText routeName={route.name} />
+                        case "Visit": return focused && <TabText routeName={route.name} />
+                        case "Dashboard": return focused && <TabText routeName={route.name} />
                     }
                 },
                 tabBarActiveTintColor: "#42BFDD",
