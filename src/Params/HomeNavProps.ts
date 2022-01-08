@@ -5,6 +5,7 @@ export type HomeParamList = {
 	Patients: undefined
 	Certificate: undefined
 	Dashboard: undefined
+	List: undefined
 }
 
 export type HomeNavProps<T extends keyof HomeParamList> = {

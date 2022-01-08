@@ -32,7 +32,7 @@ const text = StyleSheet.create({
 	h6: {
 		fontSize: 16, 
 		color: 'black', 
-		fontFamily: 'CairoRegular', 
+		fontFamily: 'CairoLight', 
 	},
 	p: {
 		fontSize: 14, 

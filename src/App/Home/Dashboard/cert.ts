@@ -1,4 +1,5 @@
-const html = `<!DOCTYPE html>
+export const html = (name: string, age: string) => {
+return `<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -42,5 +43,4 @@ const html = `<!DOCTYPE html>
 	</footer>
 </body>
 </html>`
-
-export { html }
+}

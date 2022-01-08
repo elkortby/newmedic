@@ -89,7 +89,7 @@ export default function Dashboard({navigation}: HomeNavProps<'Dashboard'>) {
 				</AppButton>
 				<AppButton 
 					style={button.buttonView}
-					onPress={() => navigation.navigate("")}
+					onPress={() => navigation.navigate("List")}
 					size={button.bigButton}
 				>
 					<AppText style={text.h4} color="white">قائمة المواعيد</AppText>

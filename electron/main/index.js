@@ -1,6 +1,6 @@
 'use strict';
 
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
 import { format as formatUrl } from 'url';
 
@@ -11,11 +11,11 @@ let mainWindow;
 
 function createMainWindow() {
   const browserWindow = new BrowserWindow({ 
-    webPreferences: { nodeIntegration: true, contextIsolation: false },
+    webPreferences: { nodeIntegration: true, contextIsolation: false, nativeWindowOpen: true },
     width: 1920,
     height: 1080,
-    maximizable: false,
-    resizable: false
+    // maximizable: false,
+    // resizable: false
   });
 
   if (isDevelopment) {
@@ -36,6 +36,11 @@ function createMainWindow() {
 
   browserWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  browserWindow.on('download-button', async (event, {url}) => {
+    const win = BrowserWindow.getFocusedWindow();
+ 	  console.log(await download(win, url));
   });
 
   browserWindow.webContents.on('devtools-opened', () => {

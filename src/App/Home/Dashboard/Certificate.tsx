@@ -17,8 +17,8 @@ import { html } from './cert'
 // 	age: 24
 // })
 export default function Certificate() {
-	const nameref = useRef("")
-	const ageref = useRef("")
+	const [name, setname] = useState("")
+	const [age, setage] = useState("")
 
 	const [items, setItems] = useState<[{
 		medic: string
@@ -41,23 +41,37 @@ export default function Certificate() {
 		})
 	}
 
+	const checkInput = (text: string, setter: (e: string) => void) => {
+		let newText = '';
+		let numbers = '0123456789';
+	
+		for (var i=0; i < text.length; i++) {
+			if(numbers.indexOf(text[i]) > -1 ) {
+				newText = newText + text[i];
+			}
+			else {
+				// your call back function
+				alert("please enter numbers only");
+			}
+		}
+		if (parseInt(newText) < 120) {
+			setage(newText)
+		}
+	}
+
 	const handleCreate = async () => {
-		// const data = {
-		// 	name: nameref.current,
-		// 	age: ageref.current,
-		// 	medics: items,
-		// }
 		if (Platform.OS === "web") {
-			const pW = window.open('', '', 'height=500, width=500')
-			pW?.document.write(html)
-			pW?.document.close()
-			pW?.print()
+			const pr = window.open('', '', 'height=792, width=612')
+			pr?.focus()
+			pr?.document.write(html(name, age))
+			pr?.print()
+			pr?.close()
 		} else {
-			const uri = await Print.printToFileAsync({
-				height: 792 / 2,
-				width: 612 / 2,
-				html: html
-			})
+			// const uri = await Print.printToFileAsync({
+			// 	height: 792 / 2,
+			// 	width: 612 / 2,
+			// 	html: html
+			// })
 			// File
 		}
 	}
@@ -77,15 +91,18 @@ export default function Certificate() {
 					style={input.inputView} 
 					shape={input.borderInput} 
 					otherStyle={input.capitalize}
-					ref={nameref}
+					value={name}
+					onChangeText={setname}
 					placeholder="Nom et Prenom"
 				/>
 				<AppTextInput 
 					style={input.inputView} 
 					shape={input.borderInput} 
 					otherStyle={input.capitalize}
-					ref={ageref}
+					value={age}
+					onChangeText={checkInput}
 					placeholder="Age"
+					maxLength={3}
 				/>
 			</View>
 			<View style={{ width: '60%'}}>
